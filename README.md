@@ -9,7 +9,7 @@ Setting up the environment
 ```bash
 $ git clone https://github.com/rahulxxarora/Automata
 $ cd Automata
-$ sudo pip install -r requirements.txt
+$ sudo sh installer.sh
 ```
 
 Running
@@ -53,6 +53,6 @@ Guide for developing Training Data
 ----------------------------------
 
 
-1. It should be contained in a file name **training_data.csv**
+1. It should be contained in a file named **training_data.csv**
 2. The format of the file should be input command and the module name to be executed separated by a comma
    * Example : What is the time?,mod_time
