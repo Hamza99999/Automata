@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, json
 from CommandClassifier import decode_command, init
 
 
@@ -13,7 +13,6 @@ application.secret_key = "Automata#secure#Key"
 def _run_on_start():
     print " * Loding files..."
     init()
-    print decode_command("what is the time?")
 
 
 #-----------------------------------------------------------------------------
@@ -22,6 +21,15 @@ def _run_on_start():
 @application.route('/')
 def index():
 	return "Working"
+
+
+#-----------------------------------------------------------------------------
+# Commands are sent to this route via POST 
+#-----------------------------------------------------------------------------
+@application.route('/decode_command', methods=['POST'])
+def decode_command_post():
+	command = request.json['command']
+	return decode_command(command) 
 
 
 if __name__=='__main__':
