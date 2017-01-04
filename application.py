@@ -24,12 +24,35 @@ def index():
 
 
 #-----------------------------------------------------------------------------
-# Commands are sent to this route via POST 
+# Responsible for decoding commands. Commands are sent to this route via POST 
+# method. 
+#
+# @params {"Command":input_query}
 #-----------------------------------------------------------------------------
 @application.route('/decode_command', methods=['POST'])
 def decode_command_post():
-	command = request.json['command']
-	return decode_command(command) 
+	try:
+		command = request.json['command']
+		return decode_command(command)
+	except:
+		return "Invalid POST Request"
+
+
+#-----------------------------------------------------------------------------
+# Responsible for executing modules. Commands are sent to this route via POST 
+# method. 
+#
+# @params {"module":mod_name}
+#-----------------------------------------------------------------------------
+@application.route('/execute_func', methods=['POST'])
+def execute_func_post():
+	try:
+		mod_name = request.json['module']
+		module   = __import__(mod_name)
+		module.run()
+		return "Module executed successfully"
+	except:
+		return "Invalid POST Request / Invalid Module name"  
 
 
 if __name__=='__main__':
