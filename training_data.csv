@@ -1,3 +1,9 @@
 What time is it?,mod_time
 Can you tell me the time please?,mod_time
 What is the time right now?,mod_time
+What date is it?,mod_date
+What date is it today?,mod_date
+Can you tell me the date please?,mod_date
+What day is it?,mod_day
+what is the day today?,mod_day
+Can you tell me the day please?,mod_day

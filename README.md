@@ -1,6 +1,8 @@
 Automata
 ========
 
+![Alt text](https://s-media-cache-ak0.pinimg.com/736x/7a/af/6c/7aaf6c68e549a959860bfea439c8c42b.jpg)
+
 
 Setting up the environment
 --------------------------
@@ -56,3 +58,4 @@ Guide for developing Training Data
 1. It should be contained in a file named **training_data.csv**
 2. The format of the file should be input command and the module name to be executed separated by a comma
    * Example : What is the time?,mod_time
+3. Whenever you update the training data, make sure you delete the existing **classifier_data.pickle** and **vocabulary_data.pickle**
