@@ -20,12 +20,12 @@ def init():
 		CLASSIFIER      = pickle.load(classifier_file)
 		classifier_file.close()
 		vocabulary_file =  open('vocabulary_data.pickle', 'rb')
-		ALL_WORDS      = pickle.load(vocabulary_file)
+		ALL_WORDS       = pickle.load(vocabulary_file)
 		vocabulary_file.close()
 
 	else:
-		file          = open("training_data.csv", 'rb') # Training data
-		reader        = csv.reader(file)
+		file   = open("training_data.csv", 'rb') # Training data
+		reader = csv.reader(file)
 
 		for row in reader:
 			training_data.append((row[0], row[1]))

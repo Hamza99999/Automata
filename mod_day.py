@@ -1,5 +1,5 @@
 from datetime import datetime
 
 
-def run():
+def run(query):
 	print datetime.now().strftime("%A")

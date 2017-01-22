@@ -7,3 +7,6 @@ Can you tell me the date please?,mod_date
 What day is it?,mod_day
 what is the day today?,mod_day
 Can you tell me the day please?,mod_day
+Please send SMS to Rahul,mod_sms
+Could you please send SMS for me?,mod_sms
+Send him a SMS,mod_sms

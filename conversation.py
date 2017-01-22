@@ -17,12 +17,10 @@ while True:
 		headers     = {"Content-type": "application/json"}
 
 		data        = json.dumps({"command":input_query})
-		request_obj = requests.post(POST_COMMAND_URL, data=data, 
-			                        headers=headers)
+		request_obj = requests.post(POST_COMMAND_URL, data=data, headers=headers)
 
-		data        = json.dumps({"module":request_obj.text})
-		request_obj = requests.post(POST_MODULE_URL, data=data, 
-			                        headers=headers)
+		data        = json.dumps({"module":request_obj.text,"data":input_query})
+		request_obj = requests.post(POST_MODULE_URL, data=data, headers=headers)
 
 	except:
 		print "Nothing detected"

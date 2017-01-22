@@ -47,9 +47,10 @@ def decode_command_post():
 @application.route('/execute_func', methods=['POST'])
 def execute_func_post():
 	try:
-		mod_name = request.json['module']
-		module   = __import__(mod_name)
-		module.run()
+		mod_name    = request.json['module']
+		input_query = request.json['data']
+		module      = __import__(mod_name)
+		module.run(input_query)
 		return "Module executed successfully"
 	except:
 		return "Invalid POST Request / Invalid Module name"  

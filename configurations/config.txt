@@ -1,0 +1,10 @@
+{
+  "contacts": {
+    "test": "98XXXXXXXX"
+  },
+  "sms": {
+    "username": "91XXXXXXXXXX",
+    "password": "XXXX",
+    "endpoint": "http://www.smszone.in/sendsms.asp?page=SendSmsBulk&username=YOUR_USERNAME&password=YOUR_PASSWORD&number=YOUR_RECEIVER&message=YOUR_MESSAGE"
+  }
+}
