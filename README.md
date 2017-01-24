@@ -23,6 +23,16 @@ $ python application.py &
 $ python conversation.py
 ```
 
+General Instructions
+--------------------
+
+
+1. Configurations/config.txt contains all the configuration specific to your needs, feel free to modify it to suit your own needs.
+2. To add you own module follow the below steps:
+   * Create a new module and define a function named **run()** in it. It should contain all the logic of this module.
+   * It should take query as an argument even though it is not used.
+   * Update the **training_data.csv** Checkout guide on creating training data below.
+
 API Endpoints
 -------------
 

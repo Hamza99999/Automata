@@ -48,3 +48,5 @@ def run(query):
 
 	except:
 		print 'Something went wrong in \'mod_sms\' module'
+
+run('send sms to me saying Hello World')

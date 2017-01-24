@@ -32,8 +32,10 @@ def index():
 @application.route('/decode_command', methods=['POST'])
 def decode_command_post():
 	try:
-		command = request.json['command']
-		return decode_command(command)
+		command  = request.json['command']
+		mod_name = decode_command(command)
+		print 'Module found - \''+mod_name+'\''
+		return mod_name
 	except:
 		return "Invalid POST Request"
 
@@ -50,6 +52,7 @@ def execute_func_post():
 		mod_name    = request.json['module']
 		input_query = request.json['data']
 		module      = __import__(mod_name)
+		print 'Executing module \''+mod_name+'\''
 		module.run(input_query)
 		return "Module executed successfully"
 	except:

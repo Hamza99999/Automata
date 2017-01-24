@@ -7,3 +7,4 @@ nltk==3.2.1
 requests==2.6.2
 SpeechRecognition==3.5.0
 requests>=2.12.4
+wolframalpha==1.4
