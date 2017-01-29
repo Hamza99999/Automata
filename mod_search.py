@@ -1,24 +1,37 @@
 #------------------------------------------------------------------------------
-# This module uses API from Wolframalpha. To use any other API, update
-# the configuration file.
+# This module uses API from Wolframalpha and TextRzor. To use any other API,
+# update the configuration file.
 #------------------------------------------------------------------------------
 
 import os
 import json
 import wolframalpha
+import textrazor
 
 
 def run(query):
-	print query
+
 	dir_path = os.path.dirname(os.path.realpath(__file__))
 	
 	with open(os.path.join(dir_path, 'configurations/config.txt')) as data_file:    
 	    json_obj = json.load(data_file)
 
-	wclient  = wolframalpha.Client(json_obj['wolframalpha'])
+	# Initialize the API keys
+	wclient           = wolframalpha.Client(json_obj['wolframalpha'])
+	textrazor.api_key = json_obj['textrazor']
+	
+	# Extract the true meaning of the sentence
+	tclient  = textrazor.TextRazor(extractors=["entities"])
+	response = tclient.analyze(query)
+	query    = response.entities()[0].id
+
+	# Perform query
 	response = wclient.query(query)
 
 	for pod in response.pods:
+
+		if pod.title=='Wikipedia summary' and pod.text != None:
+			print 'Wikipedia summary : ' + pod.text
 
 		if pod.title=='Response':
 			print pod.text
@@ -35,8 +48,11 @@ def run(query):
 		if pod.title=='Bordering countries/regions':
 			print 'Bordering countries/regions -> ' + pod.text
 
-		if pod.title=='Capital city':
+		if pod.title=='Location':
 			print pod.text
+
+		if pod.title=='Capital city':
+			print 'Capital city -> ' + pod.text
 		
 		if pod.title=='Currency':
 			print 'Currency -> ' + pod.text.split('\n')[1]
